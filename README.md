@@ -1,9 +1,12 @@
 # VIC-Borg-MPI
-Calibration of the VIC model using the MPI version of the Borg multi-objective optimization algorithm
+Objective: Calibration of the VIC model using the MPI version of the Borg multi-objective optimization algorithm
+
+# How to run example?
 
 # Enter the 'example' directory
 0. go to https://github.com/JinfengM/VIC-Borg/tree/main/example, cd example directory and download example.tar.gzaa and example.tar.gzab
-   To ensure that MPICH 3.2 has been installed
+
+    To ensure that MPICH 3.2 has been installed
 
 # Unzip the example file 'example.tar.gz*' to obtain the 'run_lh' directory.
 1. cat example.tar.gz* | tar -xzv
@@ -14,16 +17,19 @@ Calibration of the VIC model using the MPI version of the Borg multi-objective o
 3. mkdir /home/VIC
 
 # To ensure that the '/home/VIC' directory exists
-4.
+4. ls /home/VIC
 
 # To copy the run_lh directory to the /home/VIC/ directory
 5.cp -r run_lh /home/VIC/
 
 # To ensure the '/home/VIC/run_lh' exists
-6. 
+6. ls /home/VIC/run_lh
 
 # Download VIC-Borg-MPI project to the local directory '/home/VIC' 
-7. cd /home/VIC/VIC-Borg-MPI/routMPI
+# Move https://github.com/JinfengM/VIC-Borg-MPI/src/main directory to local /home/VIC/VIC-Borg-MPI directory
+# Move https://github.com/JinfengM/VIC-Borg-MPI/src/routMPI directory to local /home/VIC/VIC-Borg-MPI/routMPI directory
+
+7. cd local /home/VIC/VIC-Borg-MPI/routMPI
 # compile streamflow routing module, copy routMPI.so to /home/VIC/VIC-Borg-MPI/
 8. make
    cp routMPI.so ../
@@ -32,7 +38,7 @@ Calibration of the VIC model using the MPI version of the Borg multi-objective o
 # compile BorgMS at /home/VIC/VIC-Borg-MPI/
 10. cd ..
 make 
-# ExecuteVIC_BORG_MPI.X
+# Execute VIC_BORG_MPI.X
 mpiexec -n 9 ./VIC_BORG_MPI.X -g /home/VIC/run_lh/chanliu_input.txt
 
 # Notice
